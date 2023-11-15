@@ -1,14 +1,12 @@
 provider "aws" {
-  region     = "us-east-1"
-  access_key = var.access_key
-  secret_key = var.secret_key
+  
 }
 
 
 
 # Create a spot EC2 instance
 resource "aws_instance" "aamir-linux-ubuntu" {
-  ami                            = "ami-08a52ddb321b32a8c"
+  ami                            = "ami-0fc5d935ebf8bc3bc"
   instance_type                  = "t2.micro"  # Choose an appropriate instance type for spot instances
   
   user_data = <<-EOF
