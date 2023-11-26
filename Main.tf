@@ -1,3 +1,13 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.26.0"
+    }
+  }
+}
+
+
 provider "aws" {
   region     = "us-east-1"
   access_key = "AKIAZWCJP5G7XSNAG555"
@@ -5,9 +15,9 @@ provider "aws" {
 }
 
 resource "aws_instance" "aamir-apache-ec2" {
-  ami                         = "ami-053b0d53c279acc90"
-  instance_type               = "t2.micro"
-  
+  ami           = "ami-053b0d53c279acc90"
+  instance_type = "t2.micro"
+
   tags = {
     Name = "aamir-apache-EC2"
   }
