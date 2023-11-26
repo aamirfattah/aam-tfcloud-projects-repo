@@ -1,28 +1,20 @@
 provider "aws" {
-  access_key = "AKIARLTR4GPMDXM2FHGP"
-  secret_key = "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"
   region     = "us-east-1"
+  access_key = "AKIAZWCJP5G7XSNAG555"
+  secret_key = "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"
 }
 
-
-
-# Create a EC2 instance
-resource "aws_instance" "aamir-linux-ubuntu" {
-  ami                            = "ami-0fc5d935ebf8bc3bc"
-  instance_type                  = "t2.micro"  # Choose an appropriate instance type for spot instances
+resource "aws_instance" "aamir-apache-ec2" {
+  ami                         = "ami-053b0d53c279acc90"
+  instance_type               = "t2.micro"
   
-  user_data = <<-EOF
-    #!/bin/bash
-    sudo su
-    yum update -y
-    yum install httpd -y
-    echo "<html><h1> Welcome to Whizlabs Server</h1><html>" >> /var/www/html/index.html
-    systemctl start httpd
-    systemctl enable httpd
-    EOF
-
   tags = {
-    Name = "Aamir-Linux-ubuntu"
+    Name = "aamir-apache-EC2"
   }
+  user_data = <<EOF
+    #!/bin/bash
+    sudo apt-get update
+    sudo apt-get install apache2 -y
+    sudo systemctl start apache2
+  EOF
 }
-
