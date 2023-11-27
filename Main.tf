@@ -10,8 +10,8 @@ terraform {
 
 provider "aws" {
   region     = "us-east-1"
-  access_key = "AKIAQ7DQI5TYLI632RUT"
-  secret_key = "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"
+  access_key = "AKIAVAMZOIP62YHN4BQP"
+  secret_key = "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"
 }
 
 resource "aws_instance" "aamir-apache-ec2" {
